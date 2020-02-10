@@ -4,7 +4,7 @@ public class CanvasModel {
   private float zoom;
   
   public CanvasModel() {
-    this(300, 200);
+    this(400, 300);
   }
   
   public CanvasModel(int w, int h) {

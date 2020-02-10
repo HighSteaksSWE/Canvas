@@ -34,7 +34,7 @@ public class Point extends Node implements Editable {
     dx = model.getScreenX(this.cx);
     dy = model.getScreenY(this.cy);
     
-    stroke(255);
+    stroke(0);
     noFill();
     circle(dx, dy, 10);
   }

@@ -13,7 +13,6 @@ void setup() {
 }
 
 void draw() {
-  background(0);
   view.draw(controller);
   view.display(controller);
 }

@@ -12,7 +12,9 @@ public class CanvasController {
   }
   
   public void startDrawModel() {
+    
     model.getCanvas().beginDraw();
+    model.getCanvas().background(255);
   }
   
   public void endDrawModel() {

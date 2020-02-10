@@ -28,9 +28,9 @@ public class Line extends Node {
     int x2 = (int) b.getProperty("x");
     int y2 = (int) b.getProperty("y");
     
-    model.getCanvas().stroke(c);
-   // model.getCanvas().line(x1, y1, x2, y2);
+    model.getCanvas().stroke(255, 0, 0);
+    model.getCanvas().strokeWeight(5);
+    model.getCanvas().line(x1, y1, x2, y2);
     super.draw(model);
   }
-  
 }
