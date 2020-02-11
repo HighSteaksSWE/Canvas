@@ -8,8 +8,9 @@ void setup() {
   view = new CanvasView();
   controller = new CanvasController();
 
-  controller.getNodes().add(new Point(50, 50));
-  controller.getNodes().add(new Line(100, 100, 300, 100, color(0, 0, 255)));
+  controller.getNodes().add(new Point(450, 50));
+  controller.getNodes().add(new Line(500, 50, 500, 250, color(0, 0, 255)));
+  controller.getNodes().add(new Button(loadImage("button.png"), 475, 150, 50, 50));
 }
 
 void draw() {
