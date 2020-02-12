@@ -10,7 +10,7 @@ public class Text extends Node implements Editable {
 
   HashMap<String, Node> properties = new HashMap<String, Node>();
   PFont f;
-  int x, y ;
+  int x, y , dx, dy;
   String text;
   color c;
 
@@ -52,11 +52,11 @@ public class Text extends Node implements Editable {
 
 
   public void display(CanvasModel model) {
-    int xLocation = model.getScreenX((int) this.getProperty("x"));
-    int yLocation = model.getScreenX((int) this.getProperty("y"));
+     this.dx = model.getScreenX((int) this.getProperty("x"));
+     this.dy = model.getScreenX((int) this.getProperty("y"));
 
     fill(c);
-    text(this.text, xLocation, yLocation);
+    text(this.text, dx, dy);
     super.display(model);
   }
 
@@ -68,5 +68,24 @@ public class Text extends Node implements Editable {
     super.draw(model);
   }
 
+  @Override
+  public void mousePressed(CanvasModel model) {
+      if(Math.abs(dx - mouseX) < textWidth(text) && Math.abs(dy - mouseY) < textWidth(text) ) {
+        if(isSelected() == false) {
+          this.isSelected = true;  
+        }
+      }
+  }
+  @Override
+  public void mouseDragged(CanvasModel model) {
+    if(isSelected()) {
+       x = model.getCanvasX(mouseX);
+       y = model.getCanvasX(mouseY);
+    }
+  }
+  @Override
+  public void mouseReleased(CanvasModel model) {
+    this.isSelected = false; 
+  }
 
 }
