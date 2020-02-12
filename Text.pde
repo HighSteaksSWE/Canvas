@@ -70,7 +70,7 @@ public class Text extends Node implements Editable {
 
   @Override
   public void mousePressed(CanvasModel model) {
-      if(Math.abs(dx - mouseX) < textWidth(text) && Math.abs(dy - mouseY) < textWidth(text) ) {
+      if(mouseX < dx + textWidth(text) && mouseX > dx  && mouseY > dy - 16  && mouseY < dy) {
         if(isSelected() == false) {
           this.isSelected = true;  
         }

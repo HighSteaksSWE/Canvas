@@ -12,6 +12,43 @@ public class Sprite extends Node {
     this.tint = tint;
   }
   
+  public Object getProperty(String string) {
+    if(string.equals("x")) {
+      return x; 
+    }
+    if(string.equals("y")) {
+      return y; 
+    }
+    if(string.equals("w")) {
+      return w; 
+    }
+    if(string.equals("h")) {
+      return h; 
+    }
+    if(string.equals("image")) {
+      return image; 
+    }
+    return null;
+  }
+  
+  public void setProperty(String string, Object o) {
+    if(string.equals("x")) {
+      this.x = (int) o;
+    }
+    if(string.equals("y")) {
+      this.y = (int) o;
+    }
+    if(string.equals("w")) {
+      this.w = (int) o;
+    }
+    if(string.equals("h")) {
+      this.h = (int) o;
+    }
+    if(string.equals("image")) {
+      this.image = (PImage) o; 
+    }
+  }
+  
   public Sprite(PImage image, int x, int y) {
     this(image, x, y, image.width, image.height, color(255)); 
   }
