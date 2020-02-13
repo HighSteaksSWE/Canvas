@@ -1,72 +1,48 @@
 
-public class FreeHandDrawing extends Node implements Editable {
-
-  HashMap<String, Node> properties = new HashMap<String, Node>();
-  int  dx, dy, dpx, dpy;
-
-
-  public FreeHandDrawing() {
+public class FreeHandDrawing extends Node {
+  PGraphics drawing;
+  int w, h;
+  public FreeHandDrawing(int x, int y, int w, int h) {
+      this.x = x;
+      this.y = y;
+      this.w = w;
+      this.h = h;
+      this.drawing = createGraphics(w,h);
   }
-
-
-  public Object getProperty(String s) {
-
-    if (s.equals("x")) {
-      return mouseX;
-    }
-    if (s.equals("y")) {
-      return mouseY;
-    }
-    return null;
-  }
-  public void setProperty(String s, Object object) {
-  }
-
-  public void display(CanvasModel model) {
-    this.dx = model.getCanvasX((int) mouseX);
-    this.dy =  model.getCanvasY((int) mouseY);
-    this.dpx = model.getCanvasX((int) pmouseX);
-    this.dpy =  model.getCanvasY((int) pmouseY);
-    model.getCanvas().stroke(255);
-    if (mousePressed == true) {
-      model.getCanvas().line(mouseX, mouseY, pmouseX, pmouseY);
-    }
-
-    
-    
-    super.display(model);
-    
-  }
-
+  
   public void draw(CanvasModel model) {
-    stroke(0);
-    if (mousePressed == true) {
-      line(mouseX, mouseY, pmouseX, pmouseY);
-    }
-    
+    model.getCanvas().image(drawing, x, y, w, h);
     super.draw(model);
   }
-
-  @Override
-    public void mousePressed(CanvasModel model) {
-
-    if (isSelected() == false) {
-      this.isSelected = true;
-      cursor(HAND);
-      super.display(model);
+  
+  public void display(CanvasModel model) {
+     //stubbed
+  }
+  
+  public void mousePressed(CanvasModel model) {
+    if(mousePressed) isSelected = true;
+  }
+  
+  public void mouseDragged(CanvasModel model) {
+    if(isSelected()) {
+      int sx = model.getScreenX(x);
+      int sy = model.getScreenY(y);
+      int sw = model.getScreenX(w);
+      int sh = model.getScreenX(h);
+      if(mouseX > sx && mouseX < sx + sw && mouseY > sy && mouseY < sy + sh) {
+        int cx = model.getCanvasX(mouseX);
+        int cy = model.getCanvasY(mouseY);
+        int cpx = model.getCanvasX(pmouseX);
+        int cpy = model.getCanvasY(pmouseY);
+        drawing.beginDraw();
+        drawing.line(cx, cy, cpx, cpy); 
+        drawing.endDraw();
+      } 
     }
   }
-  @Override
-    public void mouseDragged(CanvasModel model) {
-    if (isSelected()) {
-      cursor(HAND);
-      
-      
-    }
+  
+  public void mouseReleased(CanvasModel model) {
+    isSelected = false; 
   }
-  @Override
-    public void mouseReleased(CanvasModel model) {
-    this.isSelected = false;
-    cursor(ARROW);
-  }
+  
 }
