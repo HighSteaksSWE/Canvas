@@ -1,6 +1,6 @@
 public class Sprite extends Node {
   PImage image;
-  int w, h, x ,y;
+  int w, h;
   color tint;
   
   public Sprite(PImage image, int x, int y, int w, int h, color tint) {

@@ -1,6 +1,6 @@
-public class Panel extends Node {
+public class Panel extends Group {
    Sprite moveHandleSprite;
-   int x, y, w, h;
+   int w, h;
    color fill;
    
    public Panel(PImage handle, int x, int y, int w, int h) {
@@ -21,10 +21,8 @@ public class Panel extends Node {
    
    public void mouseDragged(CanvasModel model) {
       if(moveHandleSprite.isSelected()) {
-        this.x = mouseX;
-        this.y = mouseY;
-        moveHandleSprite.setProperty("x", x + 1);
-        moveHandleSprite.setProperty("y", y + 1);
+        this.isSelected = true;
+        super.mouseDragged(model);
       }
    }
 }

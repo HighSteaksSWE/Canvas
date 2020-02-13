@@ -1,26 +1,25 @@
 public class Point extends Node implements Editable {
   int dx, dy;
-  int cx, cy;
   public Point(int x, int y) {
-    this.cx = x;
-    this.cy = y;
+    this.x = x;
+    this.y = y;
   }
   
   public void setProperty(String s, Object o) {
     if(s.equals("x")) {
-      this.cx = (int) o;
+      this.x = (int) o;
     }
     if(s.equals("y")) {
-      this.cy = (int) o;
+      this.y = (int) o;
     }
   }
   
   public Object getProperty(String s) {
     if(s.equals("x")) {
-      return cx;
+      return x;
     }
     if(s.equals("y")) {
-      return cy;
+      return y;
     }
     return null;
   }
@@ -31,8 +30,8 @@ public class Point extends Node implements Editable {
   }
   
   public void display(CanvasModel model) {
-    dx = model.getScreenX(this.cx);
-    dy = model.getScreenY(this.cy);
+    dx = model.getScreenX(this.x);
+    dy = model.getScreenY(this.y);
     
     stroke(0);
     noFill();
@@ -51,8 +50,8 @@ public class Point extends Node implements Editable {
   @Override
   public void mouseDragged(CanvasModel model) {
     if(isSelected()) {
-       this.cx = model.getCanvasX(mouseX);
-       this.cy = model.getCanvasX(mouseY);
+       this.x = model.getCanvasX(mouseX);
+       this.y = model.getCanvasX(mouseY);
     }
   }
   @Override

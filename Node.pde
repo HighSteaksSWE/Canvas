@@ -3,10 +3,29 @@ import java.util.*;
 public abstract class Node implements Displayable, Drawable, MouseEventHandler {
   protected List<Node> nodes;
   protected boolean isSelected;
+  protected int x, y;
   
   public Node() {
     this.nodes = new ArrayList<Node>();
     this.isSelected = false;
+    this.x = 0;
+    this.y = 0;
+  }
+  
+  public int getX() {
+    return x; 
+  }
+  
+  public int getY() {
+      return y;
+  }
+  
+  public void setX(int x) {
+    this.x = x;  
+  }
+  
+  public void setY(int y) {
+    this.y = y; 
   }
   
   public List<Node> getNodes() {

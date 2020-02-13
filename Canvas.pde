@@ -12,6 +12,7 @@ void setup() {
   controller.getNodes().add(new Line(500, 50, 500, 250, color(0, 0, 255)));
   controller.getNodes().add(new Button(loadImage("button.png"), 475, 150, 50, 50));
   controller.getNodes().add(new Text("Hello World", 100, 100, color(0,255,0)));
+  controller.getNodes().add(new Circle(100, 200, 50, color(0,255,0)));
   
   Polygon poly = new Polygon(50, 50, 100, 100, color(255,255,0), "type");
   poly.addPoint(50, 100);
@@ -20,6 +21,7 @@ void setup() {
   controller.getNodes().add(poly);
   
   Panel panel = new Panel(loadImage("button.png"), 10, 20, 100, 200);
+  panel.addNode(new Button(loadImage("button.png"), 25, 75, 50, 50));
   
   controller.getNodes().add(panel);
   

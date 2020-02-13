@@ -1,6 +1,6 @@
 public class Button extends Node {
   PImage img;
-  int x, y, w, h;
+  int w, h;
   List<MouseEventHandler> events;
   
   public Button(PImage img, int x, int y, int w, int h) {

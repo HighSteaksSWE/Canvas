@@ -13,9 +13,9 @@ public class Line extends Node {
   
   public void display(CanvasModel model) {
     int dx1 = model.getScreenX((int) a.getProperty("x"));
-    int dy1 = model.getScreenX((int) a.getProperty("y"));
+    int dy1 = model.getScreenY((int) a.getProperty("y"));
     int dx2 = model.getScreenX((int) b.getProperty("x"));
-    int dy2 = model.getScreenX((int) b.getProperty("y"));
+    int dy2 = model.getScreenY((int) b.getProperty("y"));
     
     stroke(c);
     line(dx1, dy1, dx2, dy2);
@@ -23,10 +23,10 @@ public class Line extends Node {
   }
   
   public void draw(CanvasModel model) {
-    int x1 = (int) a.getProperty("x");
-    int y1 = (int) a.getProperty("y");
-    int x2 = (int) b.getProperty("x");
-    int y2 = (int) b.getProperty("y");
+    int x1 = (int) a.getX();
+    int y1 = (int) a.getY();
+    int x2 = (int) b.getX();
+    int y2 = (int) b.getY();
     
     model.getCanvas().stroke(255, 0, 0);
     model.getCanvas().strokeWeight(5);

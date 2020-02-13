@@ -10,7 +10,7 @@ public class Text extends Node implements Editable {
 
   HashMap<String, Node> properties = new HashMap<String, Node>();
   PFont f;
-  int x, y , dx, dy;
+  int dx, dy;
   String text;
   color c;
 
