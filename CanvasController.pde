@@ -1,6 +1,7 @@
 public class CanvasController {
+  //changes model to be public
   private List<Node> nodes;
-  private CanvasModel model;
+  public CanvasModel model;
   
   public CanvasController() {
     this.nodes = new ArrayList<Node>();

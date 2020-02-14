@@ -1,6 +1,7 @@
 public class CanvasModel {
-  private PGraphics canvas;
-  private int canvasWidth, canvasHeight, x, y;
+  // changed first two member fields to public
+  public PGraphics canvas;
+  public int canvasWidth, canvasHeight, x, y;
   private float zoom;
   
   public CanvasModel() {
