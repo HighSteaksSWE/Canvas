@@ -3,11 +3,11 @@ public class ToolPanel extends Panel {
   List<TogglableButton> buttons;
   
   public ToolPanel(int x, int y, CanvasController controller) {
-    super(new Label("===TOOLS===", x + 10, y + 20, color(0)), x, y, 100, 300);
+    super(new Label("### TOOLS ###", x + 5, y + 20, color(0)), x, y, 100, 300);
     
     this.buttons = new ArrayList<TogglableButton>();
     
-    final TogglableButton lineButton = new TogglableButton(loadImage("button.png"), x + 10, y + 40, 28, 40);
+    final TogglableButton lineButton = new TogglableButton(loadImage("line.png"), x + 10, y + 40, 28, 40);
     lineButton.addEvent(new BottonEvent(){
       public void mouseReleased(CanvasModel model) {
         println("pressed line button");
@@ -15,7 +15,7 @@ public class ToolPanel extends Panel {
       }
     });
     
-    final TogglableButton shapeButton = new TogglableButton(loadImage("button.png"), x + 45, y + 40, 28, 40);
+    final TogglableButton shapeButton = new TogglableButton(loadImage("star.png"), x + 45, y + 40, 28, 40);
     shapeButton.addEvent(new BottonEvent(){
       public void mouseReleased(CanvasModel model) {
         println("pressed shape button");
@@ -23,9 +23,27 @@ public class ToolPanel extends Panel {
       }
     });
     
-    
+    final TogglableButton freeDrawing = new TogglableButton(loadImage("freeHand.png"), x + 10, y + 90, 28, 40);
+    shapeButton.addEvent(new BottonEvent(){
+      public void mouseReleased(CanvasModel model) {
+        println("pressed freeDrawing button");
+        turnOffOtherButtons(freeDrawing);
+      }
+    });
+
+    final TogglableButton textButton = new TogglableButton(loadImage("text.png"), x + 45, y + 90, 28, 40);
+    shapeButton.addEvent(new BottonEvent(){
+      public void mouseReleased(CanvasModel model) {
+        println("pressed text button");
+        turnOffOtherButtons(textButton);
+      }
+    });
+
+
     this.buttons.add(lineButton);
     this.buttons.add(shapeButton);
+    this.buttons.add(freeDrawing);
+    this.buttons.add(textButton);
     
     this.getNodes().addAll(buttons);
   }
