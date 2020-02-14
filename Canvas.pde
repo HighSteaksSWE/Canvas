@@ -23,6 +23,10 @@ void setup() {
   controller.getNodes().add(poly);
   controller.getNodes().add(new ToolPanel(0,0, controller));
   
+  //Save Panel
+  SavePanel savePanel  = new SavePanel(controller.model);
+  savePanel.addSaveButton();
+  controller.getNodes().add(savePanel.savePanel);
  
   
 }
