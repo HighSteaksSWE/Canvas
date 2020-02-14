@@ -22,6 +22,24 @@ public class Polygon extends Node {
     this.nodes.add(lines.get(1));
     lastLine = lines.get(1);
   }
+  
+  public ArrayList<Point> getPoints(){
+  
+    ArrayList<Point> neededPoints = new ArrayList<Point>();
+    
+    neededPoints.add(this.points.get(0));
+    
+    for (int i = 1; i < this.points.size(); i++){
+    
+      neededPoints.add(this.points.get(i));
+    
+    }
+    
+    neededPoints.add(this.points.get(this.points.size() - 1));
+    
+    return neededPoints;
+  
+  }
  
   public void addPoint(int x, int y){
        
