@@ -1,14 +1,14 @@
 public class Panel extends Group {
-   Sprite moveHandleSprite;
+   Node moveHandleSprite;
    int w, h;
    color fill;
    
-   public Panel(PImage handle, int x, int y, int w, int h) {
+   public Panel(Node handle, int x, int y, int w, int h) {
      this.x = x;
      this.y = y;
      this.w = w;
      this.h = h;
-     this.moveHandleSprite = new Sprite(handle, x + 1, y + 1, w - 2, 20, color(255));
+     this.moveHandleSprite = handle;
      this.fill = color(255);
      this.nodes.add(moveHandleSprite);
    }

@@ -3,7 +3,7 @@ CanvasView view;
 
 void setup() {
   
-  size(600, 400);
+  size(1600, 900);
   
   view = new CanvasView();
   controller = new CanvasController();
@@ -21,11 +21,9 @@ void setup() {
   poly.addPoint(50, 50);
   
   controller.getNodes().add(poly);
+  controller.getNodes().add(new ToolPanel(0,0, controller));
   
-  Panel panel = new Panel(loadImage("button.png"), 10, 20, 100, 200);
-  panel.addNode(new Button(loadImage("button.png"), 25, 75, 50, 50));
-  
-  controller.getNodes().add(panel);
+ 
   
 }
 
