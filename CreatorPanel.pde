@@ -10,7 +10,7 @@ public class CreatorPanel extends Panel {
   public CreatorPanel(int x, int y, String type, ArrayList points, Character theKey) {
     super(new Label("         " + type, x + 10, y + 20, color(0)), x, y, 100, 100);
     //super(new Text("Hello World", 100, 100, color(0,255,0)));
-    
+    this.isActive = true;
     this.x = x;
     this.y = y;
     this.points = points;

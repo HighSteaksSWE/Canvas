@@ -8,8 +8,8 @@ public class CanvasController {
   
   public CanvasController() {
     this.nodes = new ArrayList<Node>();
-    this.model = new CanvasModel();
-    this.drawing = new FreeHandDrawing(0, 0, 400, 400);
+    this.model = new CanvasModel(1200, 500);
+    this.drawing = new FreeHandDrawing(0, 0, 1200, 500);
     panel = new ToolPanel(0,0,this);
     nodes.add(panel);
     nodes.add(drawing);

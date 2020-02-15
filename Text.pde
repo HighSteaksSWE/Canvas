@@ -16,6 +16,7 @@ public class Text extends Node implements Editable {
 
   public Text(String string, int x, int y, color c) {
     f = createFont("Arial",16,true);
+    this.isActive = true;
     this.x = x;
     this.y = y;
     this.text = string;
@@ -57,6 +58,7 @@ public class Text extends Node implements Editable {
 
     fill(c);
     text(this.text, dx, dy);
+    noFill();
     super.display(model);
   }
 
