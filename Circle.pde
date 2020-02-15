@@ -11,6 +11,7 @@ public class Circle extends Node {
     this.x = x;
     this.y = y;
     this.circumference = circumference;
+    this.isActive = true;
   }
   
   public void display(CanvasModel model) {

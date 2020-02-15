@@ -10,10 +10,8 @@ void setup() {
   
   Line line1 = new Line(500, 50, 500, 250, color(0, 0, 255));
 
-  controller.getNodes().add(new FreeHandDrawing(0,0,400,300));
-  controller.getNodes().add(new Point(450, 50));
+  //controller.getNodes().add(new FreeHandDrawing(0,0,400,300));
   controller.getNodes().add(line1);
-  controller.getNodes().add(new Button(loadImage("button.png"), 475, 150, 50, 50));
   controller.getNodes().add(new Text("Hello World", 100, 100, color(0,255,0)));
   controller.getNodes().add(new Circle(100, 200, 50, color(0,255,0)));
   

@@ -14,6 +14,7 @@ public class Polygon extends Node {
     this.nodes.add(points.get(1));
     this.c = c;
     this.type = type;
+    this.isActive = true;
     
     lines.add(new Line((int) points.get(0).getProperty("x"), (int) points.get(0).getProperty("y"), (int) points.get(1).getProperty("x"), (int) points.get(1).getProperty("y"), c));
     this.nodes.add(lines.get(0));

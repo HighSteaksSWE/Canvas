@@ -3,6 +3,7 @@ public class Point extends Node implements Editable {
   public Point(int x, int y) {
     this.x = x;
     this.y = y;
+    this.isActive = true;
   }
   
   public void setProperty(String s, Object o) {

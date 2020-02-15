@@ -12,6 +12,7 @@ public class SavePanel{
   public SavePanel(CanvasModel model){ 
     this.model = model;
     this.savePanel = new Panel(new Label("#####Save#####",  110, 120, color(0)) ,100, 100, 120, 120);
+    this.savePanel.isActive = true;
     addSaveButton();// there is a better way to do this
     
   }

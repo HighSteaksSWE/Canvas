@@ -1,12 +1,13 @@
 public class Line extends Node {
   
-  private Point a, b;
+  Point a, b;
   color c;
   
   public Line(int x1, int y1, int x2, int y2, color c) {
     this.a = new Point(x1, y1);
     this.b = new Point(x2, y2);
     this.nodes.add(a);
+    this.isActive = true;
     this.nodes.add(b);
     this.c = c;
   }
