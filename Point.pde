@@ -52,7 +52,7 @@ public class Point extends Node implements Editable {
   public void mouseDragged(CanvasModel model) {
     if(isSelected()) {
        this.x = model.getCanvasX(mouseX);
-       this.y = model.getCanvasX(mouseY);
+       this.y = model.getCanvasY(mouseY);
     }
   }
   @Override

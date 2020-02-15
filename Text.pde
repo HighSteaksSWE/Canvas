@@ -54,7 +54,7 @@ public class Text extends Node implements Editable {
 
   public void display(CanvasModel model) {
      this.dx = model.getScreenX((int) this.getProperty("x"));
-     this.dy = model.getScreenX((int) this.getProperty("y"));
+     this.dy = model.getScreenY((int) this.getProperty("y"));
 
     fill(c);
     text(this.text, dx, dy);

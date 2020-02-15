@@ -7,6 +7,7 @@ public class ToolPanel extends Panel {
   TogglableButton textButton;
   TogglableButton circleButton;
   TogglableButton copyButton;
+  TogglableButton panButton;
   
   public ToolPanel(int x, int y, CanvasController controller) {
     super(new Label("### TOOLS ###", x + 5, y + 20, color(0)), x, y, 100, 300);
@@ -75,6 +76,15 @@ public class ToolPanel extends Panel {
       }
     });
     
+    //pan button
+    panButton = new TogglableButton(loadImage("pan.png"), x + 10, y + 190, 28, 40 );
+    panButton.isActive = true;
+    panButton.addEvent(new BottonEvent() {
+      public void mouseReleased(CanvasModel model) {
+        println("pressed copy button");
+        turnOffOtherButtons(panButton);
+      }
+    });
 
     this.buttons.add(lineButton);
     this.buttons.add(shapeButton);
@@ -82,6 +92,7 @@ public class ToolPanel extends Panel {
     this.buttons.add(textButton);
     this.buttons.add(circleButton);
     this.buttons.add(copyButton);
+    this.buttons.add(panButton);
     
     this.getNodes().addAll(buttons);
   }

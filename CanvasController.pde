@@ -62,6 +62,7 @@ public class CanvasController {
     if(panel.lineButton.toggle && !mousePressed) {
       newLine = null;
     }
+    
     for(Node node: nodes) {
       if(node.isActive)
       node.mouseReleased(model); 
@@ -79,6 +80,10 @@ public class CanvasController {
     if(panel.lineButton.toggle && newLine != null) { 
       newLine.b.setX(model.getCanvasX(mouseX));
       newLine.b.setY(model.getCanvasY(mouseY));
+    }
+    else if(panel.panButton.toggle && mousePressed) {
+      this.model.x += mouseX - pmouseX;
+      this.model.y += mouseY - pmouseY;
     }
     for(Node node: nodes) {
       if(node.isActive)
