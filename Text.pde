@@ -9,13 +9,16 @@ import java.util.Map;
 public class Text extends Node implements Editable {
 
   HashMap<String, Node> properties = new HashMap<String, Node>();
-  PFont f;
+  //PFont f;
   int dx, dy;
   String text;
   color c;
+  String typing = "";
+  String saved = "";
+  int indent = 25;
 
   public Text(String string, int x, int y, color c) {
-    f = createFont("Arial",16,true);
+    //f = createFont("Arial", 42, true);
     this.isActive = true;
     this.x = x;
     this.y = y;
@@ -24,17 +27,16 @@ public class Text extends Node implements Editable {
   }
 
   public void setProperty(String s, Object o) {
-    if(s.equals("x")) {
+    if (s.equals("x")) {
       this.x = (int) o;
     }
-    if(s.equals("y")) {
+    if (s.equals("y")) {
       this.y = (int) o;
     }
-    
-    if (s.equals("text")){
+
+    if (s.equals("text")) {
       this.text = (String)o;
     }
-    
   }
 
   public Object getProperty(String s) {
@@ -47,18 +49,17 @@ public class Text extends Node implements Editable {
     if (s.equals("text")) {
       return text;
     }
-    
+
     return null;
   }
 
-
   public void display(CanvasModel model) {
-     this.dx = model.getScreenX((int) this.getProperty("x"));
-     this.dy = model.getScreenY((int) this.getProperty("y"));
-
+    this.dx = model.getScreenX((int) this.getProperty("x"));
+    this.dy = model.getScreenY((int) this.getProperty("y"));
+    PFont f = createFont("Arial", 28, true);
     fill(c);
+    textFont(f);
     text(this.text, dx, dy);
-    noFill();
     super.display(model);
   }
 
@@ -71,23 +72,23 @@ public class Text extends Node implements Editable {
   }
 
   @Override
-  public void mousePressed(CanvasModel model) {
-      if(mouseX < dx + textWidth(text) && mouseX > dx  && mouseY > dy - 16  && mouseY < dy) {
-        if(isSelected() == false) {
-          this.isSelected = true;  
-        }
+    public void mousePressed(CanvasModel model) {
+    if (mouseX < dx + textWidth(text) && mouseX > dx  && mouseY > dy - 16  && mouseY < dy) {
+      if (isSelected() == false) {
+        this.isSelected = true;
       }
-  }
-  @Override
-  public void mouseDragged(CanvasModel model) {
-    if(isSelected()) {
-       x = model.getCanvasX(mouseX);
-       y = model.getCanvasX(mouseY);
     }
   }
   @Override
-  public void mouseReleased(CanvasModel model) {
-    this.isSelected = false; 
+    public void mouseDragged(CanvasModel model) {
+    if (isSelected()) {
+      x = model.getCanvasX(mouseX);
+      y = model.getCanvasX(mouseY);
+    }
+  }
+  @Override
+    public void mouseReleased(CanvasModel model) {
+    this.isSelected = false;
   }
 
 }

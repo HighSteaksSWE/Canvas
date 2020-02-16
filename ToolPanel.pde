@@ -10,7 +10,7 @@ public class ToolPanel extends Panel {
   TogglableButton panButton;
   
   public ToolPanel(int x, int y, CanvasController controller) {
-    super(new Label("### TOOLS ###", x + 5, y + 20, color(0)), x, y, 100, 300);
+    super(new Label(" Tools ", x + 5, y + 30, color(0)), x, y, 100, 300);
     this.isActive = true;
     this.buttons = new ArrayList<TogglableButton>();
     
