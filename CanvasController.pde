@@ -4,6 +4,7 @@ public class CanvasController {
   public CanvasModel model;
   private FreeHandDrawing drawing;
   public Circle circle;
+  public ColorPicker colorPicker;
 
   // hard coded text
   public Text text1;
@@ -26,6 +27,12 @@ public class CanvasController {
     this.text4 = new Text("Rectangle", 460, 700, color(0, 0, 255));
 
     panel = new ToolPanel(1300, 250, this);
+    //color picker
+    this.colorPicker = new ColorPicker(1100, 600, 150, 150, color(0,250,250));
+    nodes.add(colorPicker);
+    colorPicker.render();
+    
+    
     nodes.add(panel);
     nodes.add(drawing);
     nodes.add(circle);
@@ -56,7 +63,7 @@ public class CanvasController {
   }
 
   public void drawAllNodes() {
-
+    colorPicker.render();
     for ( Node node : nodes) {
       node.draw(model);
     }
@@ -64,6 +71,7 @@ public class CanvasController {
 
   public void displayAllNodes() {
     // drawing action
+    colorPicker.render();
     this.drawing.isActive = panel.freeDrawingButton.toggle;
     for ( Node node : nodes ) {
       node.display(model);
