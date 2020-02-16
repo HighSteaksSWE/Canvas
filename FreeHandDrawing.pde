@@ -2,12 +2,14 @@
 public class FreeHandDrawing extends Node {
   PGraphics drawing;
   int w, h;
-  public FreeHandDrawing(int x, int y, int w, int h) {
+  color c;
+  public FreeHandDrawing(int x, int y, int w, int h, color c) {
       this.x = x;
       this.y = y;
       this.w = w;
       this.h = h;
       this.drawing = createGraphics(w,h);
+      this.c = color(c);
   }
   
   public void draw(CanvasModel model) {
@@ -35,10 +37,15 @@ public class FreeHandDrawing extends Node {
         int cpx = model.getCanvasX(pmouseX);
         int cpy = model.getCanvasY(pmouseY);
         drawing.beginDraw();
+        drawing.stroke(c);
         drawing.line(cx, cy, cpx, cpy); 
         drawing.endDraw();
       } 
     }
+  }
+  
+  public void setColor(color c) {
+    this.c = c; 
   }
   
   public void mouseReleased(CanvasModel model) {

@@ -24,8 +24,6 @@ void setup() {
 }
 
 void draw() {
-  
-  cp.render();
   view.draw(controller);
   view.display(controller);
 }

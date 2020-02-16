@@ -4,6 +4,7 @@ public class CanvasController {
   public CanvasModel model;
   private FreeHandDrawing drawing;
   public Circle circle;
+  public ColorPanel colorPickerPanel;
   public ColorPicker colorPicker;
 
   // hard coded text
@@ -18,7 +19,7 @@ public class CanvasController {
   public CanvasController() {
     this.nodes = new ArrayList<Node>();
     this.model = new CanvasModel(1200, 500);
-    this.drawing = new FreeHandDrawing(0, 0, 1200, 500);
+    this.drawing = new FreeHandDrawing(0, 0, 1200, 500, color(0,250,250));
     this.circle = new Circle(100, 200, 50, color(0, 255, 0));
     // hard coded text
     this.text1 = new Text("Circle", 150, 700, color(50, 255, 255));
@@ -28,9 +29,12 @@ public class CanvasController {
 
     panel = new ToolPanel(1300, 250, this);
     //color picker
+    
     this.colorPicker = new ColorPicker(1100, 600, 150, 150, color(0,250,250));
-    nodes.add(colorPicker);
-    colorPicker.render();
+    this.colorPickerPanel = new ColorPanel(1080, 550);
+    colorPickerPanel.getNodes().add(colorPicker);
+    colorPickerPanel.isActive = true;
+    nodes.add(colorPickerPanel);
     
     
     nodes.add(panel);
@@ -63,7 +67,6 @@ public class CanvasController {
   }
 
   public void drawAllNodes() {
-    colorPicker.render();
     for ( Node node : nodes) {
       node.draw(model);
     }
@@ -71,8 +74,8 @@ public class CanvasController {
 
   public void displayAllNodes() {
     // drawing action
-    colorPicker.render();
     this.drawing.isActive = panel.freeDrawingButton.toggle;
+    this.drawing.setColor(colorPicker.getColor());
     for ( Node node : nodes ) {
       node.display(model);
     }
@@ -81,12 +84,12 @@ public class CanvasController {
   public void handleMousePressed() {
     // Line action
     if (panel.lineButton.toggle && mousePressed) {
-      newLine = new Line(model.getCanvasX(mouseX), model.getCanvasY(mouseY), model.getCanvasX( mouseX), model.getCanvasY(mouseY), color(128, 0, 0));
+      newLine = new Line(model.getCanvasX(mouseX), model.getCanvasY(mouseY), model.getCanvasX( mouseX), model.getCanvasY(mouseY), colorPicker.getColor());
       this.nodes.add(newLine);
     }
     // Circle action
     if (panel.circleButton.toggle && mousePressed) {
-      circle = new Circle(100, 200, 50, color(0, 255, 0));
+      circle = new Circle(model.getCanvasX(mouseX), model.getCanvasY(mouseY), 50, color(0, 255, 0));
       this.nodes.add(circle);
     }
 

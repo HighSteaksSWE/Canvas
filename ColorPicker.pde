@@ -1,9 +1,9 @@
 
-// sorce : http://www.julapy.com/processing/ColorPicker.pde
+// source : http://www.julapy.com/processing/ColorPicker.pde
 
 public class ColorPicker  extends Node
 {
-  int x, y, w, h, c;
+  int  w, h, c;
   PImage cpImage;
 
   public ColorPicker ( int x, int y, int w, int h, int c )
@@ -73,7 +73,7 @@ public class ColorPicker  extends Node
     }
   }
 
-  public void render ()
+  public void display(CanvasModel model)
   {
     image( cpImage, x, y );
     if ( mousePressed &&
@@ -86,5 +86,10 @@ public class ColorPicker  extends Node
     }
     fill( c );
     rect( x, y+h+10, 20, 20 );
+    noFill();
+  }
+  
+  public color getColor() {
+    return c; 
   }
 }

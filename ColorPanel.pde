@@ -1,9 +1,9 @@
-public class ColorPicker2 extends Panel {
+public class ColorPanel extends Panel {
   color fill, stroke;
   
   
-  public ColorPicker2(int x, int y) {
-    super(new Label("Color Picker", x + 5, y + 20, color(0)), x, y, 150, 140);
+  public ColorPanel(int x, int y) {
+    super(new Label("Color Picker", x + 20, y + 25, color(0)), x, y, 200, 250);
     colorMode(HSB, 100, 100, 100); // change Hue to 360 if there is time to make a wheel
     fill = color(0, 0, 100);
     stroke = color(0, 0, 0);

@@ -17,7 +17,7 @@ public class Button extends Node {
   }
   
   public void display(CanvasModel model) {
-    if(isSelected()) tint(200); else tint(255);
+    if(isSelected()) tint(color(255,0,0)); else tint(color(0));    
     image(this.img, x, y, w, h);
     noTint();
   }

@@ -20,6 +20,7 @@ public class Circle extends Node {
     int dy = model.getScreenY((int) linePoint.getProperty("y"));
     
     stroke(c);
+    noFill();
     circle(dx, dy, circumference);
     
     super.display(model);
@@ -29,6 +30,7 @@ public class Circle extends Node {
   public void draw(CanvasModel model) {
     
     stroke(c);
+    noFill();
     model.getCanvas().circle((int) linePoint.getProperty("x"), (int) linePoint.getProperty("y"), circumference);
     
     super.draw(model);
