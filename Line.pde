@@ -60,6 +60,7 @@ public class Line extends Node {
     model.getCanvas().stroke(c);
     model.getCanvas().strokeWeight(5);
     model.getCanvas().line(x1, y1, x2, y2);
+    
     super.draw(model);
   }
 }

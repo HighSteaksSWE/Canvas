@@ -8,12 +8,14 @@ public class Rectangle extends Node{
   int h;
   int dx;
   int dy;
+  color c;
   
-  public Rectangle(int x, int y, int w, int h){
+  public Rectangle(int x, int y, int w, int h, color c){
     this.x = x;
     this.y = y;
     this.w = w;
     this.h = h;
+    this.c = c;
     this.main = new Point(x, y);
     this.nodes.add(this.main);
     this.isActive = true;
@@ -33,13 +35,15 @@ public class Rectangle extends Node{
      dy = model.getScreenY(this.y);
     
      noFill();
+     stroke(c);
      rect(dx, dy, w, h);    
      super.display(model);
     
   }
   
   public void draw(CanvasModel model) {
-    noFill();
+    model.getCanvas().noFill();
+    model.getCanvas().stroke(c);
     model.getCanvas().rect(this.x, this.y, w, h);
    
     super.draw(model);    

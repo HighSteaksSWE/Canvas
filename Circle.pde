@@ -3,12 +3,12 @@ public class Circle extends Node {
   Point linePoint;
   int circumference, x, y;
   ArrayList<Point> points = new ArrayList<Point>();
-  color c;
+  color circleColor;
   
   public Circle(int x, int y, int circumference, color c) {
     this.linePoint = new Point(x, y);    
     this.nodes.add(linePoint);
-    this.c = c;
+    this.circleColor = c;
     this.x = x;
     this.y = y;
     this.circumference = circumference;
@@ -24,7 +24,8 @@ public class Circle extends Node {
     int dx = model.getScreenX((int) linePoint.getProperty("x"));
     int dy = model.getScreenY((int) linePoint.getProperty("y"));
     
-    stroke(c);
+    print(circleColor);
+    stroke(circleColor);
     noFill();
     circle(dx, dy, circumference);
     
@@ -34,8 +35,8 @@ public class Circle extends Node {
   
   public void draw(CanvasModel model) {
     
-    stroke(c);
-    noFill();
+    model.getCanvas().stroke(circleColor);
+    model.getCanvas().noFill();
     model.getCanvas().circle((int) linePoint.getProperty("x"), (int) linePoint.getProperty("y"), circumference);
     
     super.draw(model);

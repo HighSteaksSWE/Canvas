@@ -22,7 +22,7 @@ public class CanvasController {
     this.nodes = new ArrayList<Node>();
     this.model = new CanvasModel(1200, 500);
     this.drawing = new FreeHandDrawing(0, 0, 1200, 500, color(0,250,250));
-    this.circle = new Circle(100, 200, 50, color(0, 255, 0));
+    this.rectangle = new Rectangle(100, 100, 200, 100, color(0, 255, 0));
     // hard coded text
     this.text1 = new Text("Circle", 150, 700, color(50, 255, 255));
     this.text2 = new Text("Polygon", 250, 700, color(255, 0, 0));
@@ -30,7 +30,6 @@ public class CanvasController {
     this.text4 = new Text("Rectangle", 460, 700, color(0, 0, 255));
 
     panel = new ToolPanel(1300, 250, this);
-    this.rectangle = new Rectangle(500, 250, 100, 70);
     //color picker
     
     this.colorPicker = new ColorPicker(1100, 600, 150, 150, color(0,250,250));
@@ -41,9 +40,8 @@ public class CanvasController {
     
     
     nodes.add(panel);
-    nodes.add(drawing);
-    nodes.add(circle);
     nodes.add(rectangle);
+    nodes.add(drawing);
 
     // hard coded text
     nodes.add(text1);
@@ -63,6 +61,7 @@ public class CanvasController {
 
   public void startDrawModel() {
     model.getCanvas().beginDraw();
+    model.getCanvas().strokeWeight(5);
     model.getCanvas().background(255);
   }
 
@@ -162,13 +161,13 @@ public class CanvasController {
     }
     // Circle action
     if (panel.circleButton.toggle && mousePressed) {
-      circle = new Circle(model.getCanvasX(mouseX), model.getCanvasY(mouseY), 50, color(0, 255, 0));
+      circle = new Circle(model.getCanvasX(mouseX), model.getCanvasY(mouseY), 50, colorPicker.getColor());
       this.nodes.add(circle);
     }
 
     // Rectangle action
     if (panel.rectangleButton.toggle && mousePressed) {
-      rectangle = new Rectangle(500, 150, 100, 70);
+      rectangle = new Rectangle(model.getCanvasX(mouseX), model.getCanvasY(mouseY), 100, 70, colorPicker.getColor());
       this.nodes.add(rectangle);
     }
 
