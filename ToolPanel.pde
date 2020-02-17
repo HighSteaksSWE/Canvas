@@ -8,6 +8,7 @@ public class ToolPanel extends Panel {
   TogglableButton circleButton;
   TogglableButton copyButton;
   TogglableButton panButton;
+  TogglableButton rectangleButton;
   
   public ToolPanel(int x, int y, CanvasController controller) {
     super(new Label(" Tools ", x + 5, y + 30, color(0)), x, y, 100, 300);
@@ -86,6 +87,16 @@ public class ToolPanel extends Panel {
       }
     });
 
+    //Rectangle button
+    rectangleButton = new TogglableButton(loadImage("rectangle.png"), x + 55, y + 190, 28, 40 );
+    rectangleButton.isActive = true;
+    rectangleButton.addEvent(new BottonEvent() {
+      public void mouseReleased(CanvasModel model) {
+        println("pressed Rectangle button");
+        turnOffOtherButtons(panButton);
+      }
+    });
+
     this.buttons.add(lineButton);
     this.buttons.add(shapeButton);
     this.buttons.add(freeDrawingButton);
@@ -93,6 +104,7 @@ public class ToolPanel extends Panel {
     this.buttons.add(circleButton);
     this.buttons.add(copyButton);
     this.buttons.add(panButton);
+    this.buttons.add(rectangleButton);
     
     this.getNodes().addAll(buttons);
   }

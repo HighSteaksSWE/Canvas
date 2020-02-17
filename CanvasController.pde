@@ -6,6 +6,7 @@ public class CanvasController {
   public Circle circle;
   public ColorPanel colorPickerPanel;
   public ColorPicker colorPicker;
+  public Rectangle rectangle;
 
   // hard coded text
   public Text text1;
@@ -28,6 +29,7 @@ public class CanvasController {
     this.text4 = new Text("Rectangle", 460, 700, color(0, 0, 255));
 
     panel = new ToolPanel(1300, 250, this);
+    this.rectangle = new Rectangle(500, 250, 100, 70);
     //color picker
     
     this.colorPicker = new ColorPicker(1100, 600, 150, 150, color(0,250,250));
@@ -40,12 +42,14 @@ public class CanvasController {
     nodes.add(panel);
     nodes.add(drawing);
     nodes.add(circle);
+    nodes.add(rectangle);
 
     // hard coded text
     nodes.add(text1);
     nodes.add(text2);
     nodes.add(text3);
     nodes.add(text4);
+    
   }
 
   public FreeHandDrawing getDrawing() {
@@ -153,6 +157,12 @@ public class CanvasController {
       this.nodes.add(circle);
     }
 
+    // Rectangle action
+    if (panel.rectangleButton.toggle && mousePressed) {
+      rectangle = new Rectangle(500, 150, 100, 70);
+      this.nodes.add(rectangle);
+    }
+
     // text action
     if (panel.textButton.toggle && mousePressed) {
       this.text1 = new Text("Circle", 150, 700, color(255, 255, 0));
@@ -182,6 +192,11 @@ public class CanvasController {
     // turn off circle 
     if (panel.circleButton.toggle && !mousePressed) {
       circle = null;
+    }
+    
+    // turn off Rectangle 
+    if (panel.rectangleButton.toggle && !mousePressed) {
+      rectangle = null;
     }
 
     // turn off text 
