@@ -1,6 +1,7 @@
 CanvasController controller;
 CanvasView view;
 ColorPicker cp;
+Selected select = new Selected(true);
 
 void setup() {
   
@@ -9,7 +10,7 @@ void setup() {
   controller = new CanvasController();
   controller.getNodes().add(new Text(" Welcom to myPaint ! ", 450, 50, color(0,255,0)));
   //controller.getNodes().add(new Circle(100, 200, 50, color(0,255,0)));
-  
+  controller.getNodes().add(new Line(25, 70, 40, 50, color(0,255,0)));
   
   Polygon poly = new Polygon(50, 50, 100, 100, color(255,255,0), "type");
   poly.addPoint(50, 100);
@@ -25,7 +26,7 @@ void setup() {
 
 void draw() {
   view.draw(controller);
-  view.display(controller);
+  view.display(controller, select.isSelected());
 }
 
 void mousePressed() {

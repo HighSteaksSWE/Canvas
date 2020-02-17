@@ -72,12 +72,72 @@ public class CanvasController {
     }
   }
 
-  public void displayAllNodes() {
+  public void displayAllNodes(Boolean displaySelected) {
     // drawing action
     this.drawing.isActive = panel.freeDrawingButton.toggle;
     this.drawing.setColor(colorPicker.getColor());
-    for ( Node node : nodes ) {
-      node.display(model);
+    if (displaySelected){
+      for ( Node node : nodes ) {
+        if (node instanceof Panel){
+          node.display(model);
+        }
+        if (node instanceof Button){
+          node.display(model);
+        }
+        if (node instanceof Text){
+          node.display(model);
+        }
+        if (node instanceof Sprite){
+          node.display(model);
+        }
+        if (node instanceof Polygon){
+          
+          int x2 = (int) ((Point) node.getNodes().get(1)).getProperty("x");
+          int y2 = (int) ((Point) node.getNodes().get(1)).getProperty("y");
+          int x1 = (int) ((Point) node.getNodes().get(0)).getProperty("x");
+          int y1 = (int) ((Point) node.getNodes().get(0)).getProperty("y");
+          
+          ((Point) node.getNodes().get(1)).setProperty("x", (int) ((Point) node.getNodes().get(0)).getProperty("x") + (x2 - x1));
+          ((Point) node.getNodes().get(1)).setProperty("y", (int) ((Point) node.getNodes().get(0)).getProperty("y") + (y2 - y1));
+          
+          ((Point) node.getNodes().get(2).getNodes().get(0)).setProperty("x", (int) ((Point) node.getNodes().get(0)).getProperty("x"));
+          ((Point) node.getNodes().get(2).getNodes().get(0)).setProperty("y", (int) ((Point) node.getNodes().get(0)).getProperty("x"));
+          
+          for (int i = 2; i < node.getNodes().size(); i++){
+            ((Point) node.getNodes().get(i).getNodes().get(1)).setProperty("x", (int) ((Point) node.getNodes().get(i).getNodes().get(0)).getProperty("x") + ((int)((Line) node.getNodes().get(i)).getX2() - (int)((Line) node.getNodes().get(i)).getX1()));
+            ((Point) node.getNodes().get(i).getNodes().get(1)).setProperty("y", (int) ((Point) node.getNodes().get(i).getNodes().get(0)).getProperty("y") + ((int)((Line) node.getNodes().get(i)).getY2() - (int)((Line) node.getNodes().get(i)).getY1()));
+          }
+          node.getNodes().get(3).getNodes().get(0).display(model);
+          node.getNodes().get(2).getNodes().get(0).display(model);
+        }
+        if (node instanceof Line){
+          ((Point) node.getNodes().get(1)).setProperty("x", (int) ((Point)node.getNodes().get(0)).getProperty("x") + ((int)((Line) node).getX2() - (int)((Line) node).getX1()));
+          ((Point) node.getNodes().get(1)).setProperty("y", (int) ((Point)node.getNodes().get(0)).getProperty("y") + ((int)((Line) node).getY2() - (int)((Line) node).getY1()));
+          node.getNodes().get(0).display(model);
+        }
+        if (node instanceof Circle){
+          node.getNodes().get(0).display(model);
+        }
+      }
+    }
+    else{
+      for (Node node : nodes) {
+        if (node instanceof Polygon){
+          node.display(model);
+        }
+        if (node instanceof Sprite){
+          node.display(model);
+        }
+        if (node instanceof Panel){
+          node.display(model);
+        }
+        if (node instanceof Button){
+          node.display(model);
+        }
+        if (node instanceof Text){
+          node.display(model);
+        }
+      }
     }
   }
 

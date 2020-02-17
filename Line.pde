@@ -1,15 +1,43 @@
 public class Line extends Node {
   
   Point a, b;
+  ArrayList<Point> points = new ArrayList<Point>();
+  int offset, x1, x2, y1, y2;
   color c;
   
   public Line(int x1, int y1, int x2, int y2, color c) {
+    this.x1 = x1;
+    this.x2 = x2;
+    this.y1 = y1;
+    this.y2 = y2;
     this.a = new Point(x1, y1);
     this.b = new Point(x2, y2);
     this.nodes.add(a);
     this.isActive = true;
     this.nodes.add(b);
     this.c = c;
+    this.points.add(this.a);
+    this.points.add(this.b);
+  }
+  
+  public ArrayList<Point> getPoints(){
+    return this.points;
+  }
+  
+  public int getX1(){
+    return this.x1;
+  }
+  
+  public int getX2(){
+    return this.x2;
+  }
+  
+  public int getY1(){
+    return this.y1;
+  }
+  
+  public int getY2(){
+    return this.y2;
   }
   
   public void display(CanvasModel model) {

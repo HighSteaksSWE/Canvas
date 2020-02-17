@@ -36,19 +36,17 @@ public class Polygon extends Node {
     
     }
     
-    neededPoints.add(this.points.get(this.points.size() - 1));
-    
     return neededPoints;
   
   }
  
   public void addPoint(int x, int y){
        
-    pointsCurrent = pointsCurrent + 1;
-    points.add(new Point(x, y));
+    //pointsCurrent = pointsCurrent + 1;
+    //points.add(new Point(x, y));
     
     linesCurrent = linesCurrent + 1;
-    lines.add(linesCurrent - 1, new Line((int) points.get(pointsCurrent - 2).getProperty("x"), (int) points.get(pointsCurrent - 2).getProperty("y"), (int) points.get(pointsCurrent - 1).getProperty("x"), (int) points.get(pointsCurrent - 1).getProperty("y"), c));
+    lines.add(linesCurrent - 1, new Line((int) lines.get(linesCurrent - 2).getX2(), (int) lines.get(linesCurrent - 2).getY2(), x, y, c));
     
     this.nodes.add(lines.get(linesCurrent - 1));
     

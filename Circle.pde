@@ -2,6 +2,7 @@ public class Circle extends Node {
   
   Point linePoint;
   int circumference, x, y;
+  ArrayList<Point> points = new ArrayList<Point>();
   color c;
   
   public Circle(int x, int y, int circumference, color c) {
@@ -12,6 +13,10 @@ public class Circle extends Node {
     this.y = y;
     this.circumference = circumference;
     this.isActive = true;
+  }
+  
+  public ArrayList<Point> getPoints(){
+    return this.points;
   }
   
   public void display(CanvasModel model) {
