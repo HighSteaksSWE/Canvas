@@ -5,7 +5,7 @@ public class CanvasView {
     controller.drawAllNodes();
     controller.endDrawModel();
   }
-  public void display(CanvasController controller, Boolean displaySelected) {
-    controller.displayAllNodes(displaySelected);
+  public void display(CanvasController controller) {
+    controller.displayAllNodes();
   }
 }

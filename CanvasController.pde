@@ -7,6 +7,7 @@ public class CanvasController {
   public ColorPanel colorPickerPanel;
   public ColorPicker colorPicker;
   public Rectangle rectangle;
+  public Boolean selected = false;
 
   // hard coded text
   public Text text1;
@@ -76,11 +77,11 @@ public class CanvasController {
     }
   }
 
-  public void displayAllNodes(Boolean displaySelected) {
+  public void displayAllNodes() {
     // drawing action
     this.drawing.isActive = panel.freeDrawingButton.toggle;
     this.drawing.setColor(colorPicker.getColor());
-    if (displaySelected){
+    if (selected){
       for ( Node node : nodes ) {
         if (node instanceof Panel){
           node.display(model);
@@ -135,7 +136,7 @@ public class CanvasController {
           node.display(model);
         }
         if (node instanceof Rectangle){
-          node.display(model);
+          //node.display(model);
         }
         if (node instanceof Sprite){
           node.display(model);

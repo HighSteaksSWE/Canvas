@@ -1,7 +1,7 @@
 CanvasController controller;
 CanvasView view;
 ColorPicker cp;
-Selected select = new Selected(true);
+Selected select = new Selected(false);
 
 void setup() {
   
@@ -26,7 +26,7 @@ void setup() {
 
 void draw() {
   view.draw(controller);
-  view.display(controller, select.isSelected());
+  view.display(controller);
 }
 
 void mousePressed() {
