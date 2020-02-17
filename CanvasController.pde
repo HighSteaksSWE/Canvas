@@ -94,6 +94,11 @@ public class CanvasController {
         if (node instanceof Sprite){
           node.display(model);
         }
+        if (node instanceof Rectangle){
+          ((Rectangle) node).setX((int) ((Point) node.getNodes().get(0)).getProperty("x"));
+          ((Rectangle) node).setY((int) ((Point) node.getNodes().get(0)).getProperty("y"));
+          ((Point) node.getNodes().get(0)).display(model);
+        }
         if (node instanceof Polygon){
           
           int x2 = (int) ((Point) node.getNodes().get(1)).getProperty("x");
@@ -127,6 +132,9 @@ public class CanvasController {
     else{
       for (Node node : nodes) {
         if (node instanceof Polygon){
+          node.display(model);
+        }
+        if (node instanceof Rectangle){
           node.display(model);
         }
         if (node instanceof Sprite){
