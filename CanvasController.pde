@@ -30,8 +30,8 @@ public class CanvasController {
     this.text4 = new Text("Rectangle", 460, 700, color(0, 0, 255));
 
     panel = new ToolPanel(1300, 250, this);
-    //color picker
     
+    //color picker
     this.colorPicker = new ColorPicker(1100, 600, 150, 150, color(0,250,250));
     this.colorPickerPanel = new ColorPanel(1080, 550);
     colorPickerPanel.getNodes().add(colorPicker);
@@ -184,6 +184,10 @@ public class CanvasController {
       this.nodes.add(text4);
     }
 
+    // Selected action
+    if (panel.selectButton.toggle && mousePressed) {
+      this.selected = true;      
+    }
 
     for (Node node : nodes) {
       if (node.isActive)
@@ -205,6 +209,10 @@ public class CanvasController {
     // turn off Rectangle 
     if (panel.rectangleButton.toggle && !mousePressed) {
       rectangle = null;
+    }
+    // turn off select 
+    if (panel.rectangleButton.toggle && !mousePressed) {
+      this.selected = true; 
     }
 
     // turn off text 

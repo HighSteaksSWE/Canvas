@@ -6,7 +6,7 @@ public class ToolPanel extends Panel {
   TogglableButton freeDrawingButton;
   TogglableButton textButton;
   TogglableButton circleButton;
-  TogglableButton copyButton;
+  TogglableButton selectButton;
   TogglableButton panButton;
   TogglableButton rectangleButton;
   
@@ -67,13 +67,13 @@ public class ToolPanel extends Panel {
       }
     });
     
-    // copy object Button
-    copyButton = new TogglableButton(loadImage("copy.png"), x + 55, y + 140, 28, 40);
-    copyButton.isActive = true;
-    copyButton.addEvent(new BottonEvent(){
+    // selct object Button
+    selectButton = new TogglableButton(loadImage("select.png"), x + 55, y + 140, 28, 40);
+    selectButton.isActive = true;
+    selectButton.addEvent(new BottonEvent(){
       public void mouseReleased(CanvasModel model) {
         println("pressed copy button");
-        turnOffOtherButtons(copyButton);
+        turnOffOtherButtons(selectButton);
       }
     });
     
@@ -102,7 +102,7 @@ public class ToolPanel extends Panel {
     this.buttons.add(freeDrawingButton);
     this.buttons.add(textButton);
     this.buttons.add(circleButton);
-    this.buttons.add(copyButton);
+    this.buttons.add(selectButton);
     this.buttons.add(panButton);
     this.buttons.add(rectangleButton);
     
