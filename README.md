@@ -18,14 +18,23 @@ It includes nine buttons. Each work by clicking one to turn it on, and then clic
 Note: For best experience, make sure to turn the button off if you want to try a different button.
 
 1] Line Button: It draws one point on Canvas and you can drag the mouse to draw a line.
+
 2] Shape Button (Star icon): It draws any polygon you want. You can keep adding more points and modify the length of the lines to get any shape you want.
+
 3] Free Drawing Button (Pencil icon): You can draw any shape. It resembles a pencil.
+
 4] Text Button: you can add prepared text to the Canvas and change its location.
+
 5] Circle Button: Adds circles to the canvas
+
 6] Select Button (pointed hand): select mode enables you to select shapes and text and move them around the canvas Note: make sure it’s turned off when creating shapes.
+
 7] Pan Button(Hand): this allows you to pan the canvas with all what is included(shapes and texts).
+
 8] Rectangle Button: creates rectangles.
+
 9] Save Button: saves the canvas as a “.png” image in the same software folder.
+
 
 
 Color Picker: pick the color that you want and then create the shape. The shape will be created in the chosen color and displayed on the Canvas.
