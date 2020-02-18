@@ -4,6 +4,7 @@ public class CanvasController {
   public CanvasModel model;
   private FreeHandDrawing drawing;
   public Circle circle;
+  public Polygon polygon;
   public ColorPanel colorPickerPanel;
   public ColorPicker colorPicker;
   public Rectangle rectangle;
@@ -164,6 +165,12 @@ public class CanvasController {
       circle = new Circle(model.getCanvasX(mouseX), model.getCanvasY(mouseY), 50, colorPicker.getColor());
       this.nodes.add(circle);
     }
+    
+    // Polygon action
+    if (panel.shapeButton.toggle && mousePressed) {
+      polygon = new Polygon(300, 200, 350, 250, colorPicker.getColor(), "type");
+      this.nodes.add(polygon);
+    }
 
     // Rectangle action
     if (panel.rectangleButton.toggle && mousePressed) {
@@ -213,6 +220,11 @@ public class CanvasController {
     // turn off select 
     if (panel.rectangleButton.toggle && !mousePressed) {
       this.selected = true; 
+    }
+
+    // turn off polygon 
+    if (panel.rectangleButton.toggle && !mousePressed) {
+      this.polygon = null; 
     }
 
     // turn off text 

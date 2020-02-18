@@ -10,6 +10,8 @@ public class ToolPanel extends Panel {
   TogglableButton panButton;
   TogglableButton rectangleButton;
   
+  
+  
   public ToolPanel(int x, int y, CanvasController controller) {
     super(new Label(" Tools ", x + 5, y + 30, color(0)), x, y, 100, 300);
     this.isActive = true;
@@ -96,6 +98,10 @@ public class ToolPanel extends Panel {
         turnOffOtherButtons(panButton);
       }
     });
+// Save panel
+  SavePanel savePanel  = new SavePanel(controller.model);
+  savePanel.addSaveButton();
+  
 
     this.buttons.add(lineButton);
     this.buttons.add(shapeButton);
@@ -105,6 +111,7 @@ public class ToolPanel extends Panel {
     this.buttons.add(selectButton);
     this.buttons.add(panButton);
     this.buttons.add(rectangleButton);
+    this.buttons.add(savePanel.save);
     
     this.getNodes().addAll(buttons);
   }
